@@ -1,0 +1,58 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title TVPage Test
+        meta(name='description', content='web crawler at link depth')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/static/css/app.css')
+    body(ng-app='myApp')
+        div(ng-controller='myController', class="container-fluid")
+            div(class='row')
+                div(class='col-sm-12')
+                    h2 The Bluske Dev Test
+            div(class='row')
+                div(class='col-sm-12')
+                    h4 Enter a Valid URL:
+                        span(class="small") &nbsp;( http or https )
+            div(class='row')
+                div(class='col-sm-10')
+                    input(type='text', class='input-lg', id='myURLtextbox'
+                    ng-model='myURL.url', ng-focus='focusState=true', ng-blur='focusState=false')
+                    div(ng-if='focusState', id='inputSuggestions')
+                        ul(class="list-group")
+                            li(ng-repeat='s in recentSearches', class='list-group-item') {{s | limitTo: 60}}
+                div(class='col-sm-2')
+                    button(type='button', id='getLinksBtn', class='btn btn-default btn-lg', ng-click='sendURL()') Get Links
+            hr
+            div(class='container')
+                ul(class="list-group")
+                    li(ng-repeat='x in Q', ng-controller='repeatController', class="list-group-item")
+                        div(class="row")
+                            form(class='form-inline')
+                                div(class='col-sm-4 form-group')
+                                    label(class='listItemLabel') URL
+                                    span(class="urlItem") {{x.url | limitTo: 40 }}
+                                div(class='col-sm-3 form-group')
+                                    label(class='listItemLabel') domains
+                                    select(class="form-control domainDropdown", ng-model='selectedDomain'
+                                    ng-options='y as y for y in x.domains | orderBy: y')
+                                div(class='col-sm-3 form-group')
+                                    label(class='listItemLabel') links
+                                    select(class="form-control domainLinksDropdown", ng-model='selectedURL'
+                                    ng-options='(z.linkURL | limitTo: 50) for z in x.data | secondDropdown : selectedDomain'
+                                    ng-change='deeperLinks(selectedURL)')
+                                div(class='col-sm-2 text-center')
+                                    a(class="close", ng-click='$parent.removeFromQ(x.url)', style='cursor:pointer;') ×
+            div(class='container')
+                div(class='row')
+                    div(class='col-xs-12')
+                        div(d3-bars, data="dummyData")
+            script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+            script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js')
+            script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js')
+            script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+            script(src='/static/js/d3.js')
+            script(src='/static/js/app.js')

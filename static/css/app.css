@@ -1,0 +1,46 @@
+/* app css stylesheet */
+#myURLtextbox{
+    min-width: 100%;
+    padding: 2px 10px;
+    font: 15px;
+}
+
+#inputSuggestions{
+    min-width: 100%;
+    padding: 2px 10px;
+    position: absolute;
+    left:0;
+    top:55px;
+    z-index:1;
+}
+
+#getLinksBtn, #myURLtextbox{
+    margin-top: 10px;
+}
+
+.listItemLabel{
+    min-width: 100%;
+    padding: 2px 10px;
+}
+
+.urlItem{
+    min-width: 100%;
+    padding: 2px 10px;
+}
+
+.domainDropdown{
+    min-width: 100%;
+    padding: 2px 10px;
+}
+
+.domainLinksDropdown{
+    min-width: 100%;
+    padding: 2px 10px;
+}
+
+.buttonLoading, .buttonLoading:hover, .buttonLoading:focus{
+    overflow: hidden;
+    background: url(/static/img/catloading.gif) no-repeat center;
+    background-size: contain;
+    color: rgba(255,255,255, .01);
+}
