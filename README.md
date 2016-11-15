@@ -1,27 +1,30 @@
 # THE BLUSKE DEV TEST
 
-## Scraping the a page and aggragating URLs by domain
+## Scraping pages & aggragating URLs by domain
 
-### MongoDB used to store sessions and anonymous user data
+### MongoDB 
+used to store sessions and anonymous user data
 
-### Express used for API to route URL requests to the web scraper
+### Express 
+used for API to route URL requests to the web scraper
 
-### AngularJS, Bootstrap, D3, and jQuery used for async data exchange and view updating
+### AngularJS, Bootstrap, D3, and jQuery 
+used for async data exchange and view updating
  
 Project Duration: 3 days
 
-Working app[link](http://www.vitalreplica.com/tvpage-test)
+Working app:  [www.vitalreplica.com/tvpage-test](http://www.vitalreplica.com/tvpage-test)
 
 ---
 
 ACCOMPLISHED:
 
-  * listing domains found
-  * listing urls per domain
-  * dynamic histogram of URLs per domain
-  * async SPA functionality (and friendly cat loading button)
-  * queue of query results which can be removed with **x**
-  * cookie stored in DB allows for recent query suggestions
+  * listed domains found for URL provided
+  * listed urls per each domain
+  * created dynamic histogram of URL counts per domain
+  * SPA functionality implemented for async processsing (with friendly cat loading button)
+  * query results queued -- which can be removed with **x**
+  * Cookie stored in DB allows for recent query suggestions
 
 TODOS + ROOM FOR IMPROVEMENT:
 
